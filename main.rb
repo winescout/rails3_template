@@ -6,8 +6,6 @@ run "rvm use --create --rvmrc ruby-1.9.2@#{app_name}"
 run "gem install bundler"
 run "bundle install"
 
-run "bundle install"
-
 application  <<-GENERATORS
 config.generators do |g|
   g.template_engine :haml
@@ -18,7 +16,7 @@ end
 GENERATORS
 
 generate "rspec:install"
-generate "cucumber:install --capybara --rspec --spork"
+generate "cucumber:install --webrat --rspec --spork"
 generate "pickle --path --email"
 generate "friendly_id"
 generate "formtastic:install"

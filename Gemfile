@@ -30,13 +30,13 @@ group :test do
   gem "remarkable", ">=4.0.0.alpha4"
   gem "remarkable_activemodel", ">=4.0.0.alpha4"
   gem "remarkable_activerecord", ">=4.0.0.alpha4"
-  gem "capybara-envjs"
+  #gem "capybara-envjs"
 end
 
 group :cucumber do
   gem "cucumber", ">=0.6.3"
   gem "cucumber-rails", ">=0.3.2"
-  gem "capybara", ">=0.3.6"
+  #gem "capybara", ">=0.3.6"
   gem "database_cleaner", ">=0.5.0"
   gem "spork", ">=0.8.4"
   gem "pickle", ">=0.4.2"

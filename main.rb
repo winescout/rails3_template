@@ -4,8 +4,6 @@ run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/r
 
 run "bundle install"
 
-plugin 'asset_packager', :git => 'git://github.com/sbecker/asset_packager.git'
-
 application  <<-GENERATORS
 config.generators do |g|
   g.template_engine :haml
@@ -24,7 +22,7 @@ generate "devise:install"
 generate "devise User"
 generate "devise Admin"
 generate "rails_admin:install_admin"
-generate "barista:install"
+
 run "gem install compass"
 run "compass init --using blueprint --app rails --css-dir public/stylesheets"
 append_file "config/compass.rb", "require 'lemonade'"
@@ -44,19 +42,10 @@ run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/r
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/bootstrap.rake' -O lib/tasks/bootstrap.rake"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/build.sh' -O build.sh"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/overlay.png' -O public/images/overlay.png"
-run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/newrelic.yml' -O config/newrelic.yml"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/hoptoad.rb' -O config/initializers/hoptoad.rb"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/rails_admin.rb' -O config/initializers/rails_admin.rb"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/htaccess' -O public/.htaccess"
-run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/asset_packages.yml' -O config/asset_packages.yml"
-run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/evergreen.rb' -O config/evergreen.rb"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/grid.png' -O public/images/grid.png"
-
-create_file 'config/deploy.rb', <<-DEPLOY
-application = '#{app_name}'
-repository = ''
-hosts = %w()
-DEPLOY
 
 append_file 'Rakefile', <<-METRIC_FU
 
@@ -64,11 +53,6 @@ MetricFu::Configuration.run do |config|
   config.rcov[:rcov_opts] << "-Ispec"
 end rescue nil
 METRIC_FU
-
-append_file 'config/environment.rb', <<-ASSET_PACKAGER
-
-  Synthesis::AssetPackage.merge_environments = %w(staging production)
-ASSET_PACKAGER
 
 run "mkdir -p app/coffeescripts spec/javascripts spec/javascripts/templates"
 run "chmod u+x build.sh"

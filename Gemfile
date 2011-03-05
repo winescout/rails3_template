@@ -13,28 +13,16 @@ gem "formtastic", ">=1.1.0"
 gem "friendly_id", "~>3.0"
 gem "compass", ">= 0.10.5"
 gem "lemonade", "0.3.4"
-gem "barista", ">= 0.5.0"
-gem "hoptoad_notifier", ">=2.3.6"
-gem "inploy", ">=1.6.8"
 
 group :development do
   gem "autotest"
   gem "autotest-notification"
   gem "rails3-generators", :git => "git://github.com/indirect/rails3-generators.git"
-  gem "metric_fu", ">=1.5.1"
 end
 
 group :development, :test do
-  gem "evergreen"
   gem "factory_girl_rails"
   gem "rspec-rails", ">=2.0.1"
-  gem "evergreen", :require => "evergreen/rails"
-  platforms :mri_18 do
-    gem "ruby-debug"
-  end
-  platforms :mri_19 do
-    gem "ruby-debug19", :require => 'ruby-debug'
-  end
 end
 
 group :test do
@@ -54,6 +42,3 @@ group :cucumber do
   gem "pickle", ">=0.4.2"
 end
 
-group :production do
-  gem "newrelic_rpm", ">=2.12.3"
-end

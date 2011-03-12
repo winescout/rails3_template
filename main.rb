@@ -3,13 +3,14 @@
 #end
 #
 def install_file(local_path, opts = {})
-  run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master#{local_path}' -O #{local_path}"
+  run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/#{local_path}' -O #{local_path}"
   namespace_file(local_path)
 end
 
 def namespace_file(local_path)
-  ruby -e "$.gsub!(/\{\{APP_NAME\}\}/, app_name.upcase)" local_path
+  run "erb #{local_path} > local_path"
 end
+
 #run "rm -Rf .gitignore README public/index.html public/javascripts/* test app/views/layouts/*"
 #
 #
@@ -77,7 +78,7 @@ end
 #run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/homepage_controller.rb' -O app/controllers/homepage_controller.rb"
 #
 ## replacing routes
-install_file "/config/routes.rb"
+install_file "config/routes.rb"
 #run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/config/routes.rb' -O config/routes.rb"
 
 run "mkdir -p app/coffeescripts spec/javascripts spec/javascripts/templates"

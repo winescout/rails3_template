@@ -1,4 +1,4 @@
-Telephone::Application.routes.draw do
+{{APP_NAME}}::Application.routes.draw do
   get "welcome/index"
   
   devise_for :admins
@@ -7,3 +7,4 @@ Telephone::Application.routes.draw do
   match 'homepage', :to => "homepage#index"
   root :to => "welcome#index"
 end
+

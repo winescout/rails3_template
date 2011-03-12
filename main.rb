@@ -1,10 +1,15 @@
+def rvm_run(command, config = {})
+  run "rvm ruby-1.9.2@#{app_name} #{command}", config
+end
+
 run "rm -Rf .gitignore README public/index.html public/javascripts/* test app/views/layouts/*"
+
 
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/Gemfile' -O Gemfile"
 
-run "rvm --create use ruby-1.9.2@#{app_name}" 
-run "rvm ruby-1.9.2@#{app_name} gem install bundler"
-run "rvm ruby-1.9.2@#{app_name} -S bundle install"
+run "rvm --create --rvmrc use ruby-1.9.2@#{app_name}" 
+rvm_run "gem install bundler"
+rvm_run "-S bundle install"
 
 application  <<-GENERATORS
 config.generators do |g|
@@ -54,6 +59,17 @@ run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/r
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/public/javascripts/jasmine-jquery-1.2.0.js' -O public/javascripts/jasmine-jquery-1.2.0.js"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/public/javascripts/jquery.min.js' -O public/javascripts/jquery.min.js"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/public/javascripts/navigation.coffee -O public/javascripts/navigation.coffee"
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/stylesheets/anonymous.scss -O app/stylesheets/anonymous.scss"
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/stylesheets/navigation.scss -O app/stylesheets/navigation.scss"
+
+#controllers
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/homepage_controller.rb -O app/controllers/homepage_controller.rb
+"
+
+
+# replacing routes
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/config/routes.rb -O config/routes.rb"
+
 
 
 append_file 'Rakefile', <<-METRIC_FU
@@ -72,3 +88,6 @@ git :add => 'public/javascripts/rails.js --force'
 git :commit => '-am "Initial commit"'
 
 puts "SUCCESS!"
+
+
+

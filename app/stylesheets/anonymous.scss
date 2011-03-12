@@ -1,0 +1,28 @@
+@import "blueprint/grid";
+.tab_content{
+  aside{
+    margin-top: 1em;
+    float: right;
+    right: $blueprint-grid-outer-width * 2;
+    width: $blueprint-grid-outer-width * 5;
+    border: 1px solid #000;
+
+    p{
+      margin-top: $blueprint-grid-outer-width;
+      margin-bottom: $blueprint-grid-outer-width;
+      margin-left: $blueprint-grid-outer-width;
+    }
+ }
+}
+
+.flash{
+  padding: 5px;
+  width: $blueprint-grid-outer-width * 7;
+  margin-bottom: 1em;
+  display: none;
+  }
+
+.inline_validation_error{
+  color: red;
+  }
+

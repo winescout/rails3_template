@@ -1,0 +1,30 @@
+#top_nav, footer{
+  margin-top: 1em;
+  menu{
+    display: inline;
+    margin-left: 0;
+    padding-left: 0;
+
+    li{
+      display: inline;
+      margin-left: 0;
+      padding: 3px 15px;
+      border-left: 1px solid #000;
+      list-style: none;
+
+      &:first-child{
+        border-left: none;
+      }
+    }
+  }
+}
+
+#top_nav{
+  float: right;
+}
+
+section#content{
+  margin-left: auto;
+  margin-right: auto;
+  background-color: blue;
+}

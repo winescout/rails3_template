@@ -1,0 +1,39 @@
+!!! 5
+%html
+  %head
+    %title
+    = raw stylesheet_link_tag('screen', :media => 'screen, projection')
+    = raw stylesheet_link_tag('print', :media => 'print')
+    = raw stylesheet_link_tag('navigation', :media => 'screen')
+    = raw stylesheet_link_tag('anonymous', :media => 'screen')
+    = raw stylesheet_link_tag('jquery-ui/cupertino/jquery-ui-1.8.10.custom')
+
+    /[if lt IE 8]
+      = raw stylesheet_link_tag('ie', :media => 'screen, projection')
+      %script{:src => "http://html5shiv.googlecode.com/svn/trunk/html5.js" }
+    = csrf_meta_tag
+  %body
+    #container
+      %header 
+        #top_nav
+          %menu
+            %li= link_to "Login", "#login-tab", :class => "gotoLogin"
+            %li= link_to "Sign up", "#signup-tab", :class => "gotoSignup"
+        %h1 Welcome!  
+      %section#content
+        #main_tab_menu
+          %ul
+            %li= link_to "Log in", new_user_session_path
+            %li= link_to "Sign up", new_user_path
+
+      %footer 
+        %menu
+          %li= link_to "Get help", "/"
+          %li= link_to "About us", "/"
+          %li= link_to "Secure & Private", "/"
+          %li= link_to "Terms of use", "/"
+    %script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js" }
+    %script{ :type => "text/javascript", :src => "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js" }
+    = raw javascript_include_tag "rails"
+    = raw javascript_include_tag "jquery-ui.min.js"
+    = raw javascript_include_tag "navigation"

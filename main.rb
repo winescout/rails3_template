@@ -47,6 +47,7 @@ run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/r
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/rails_admin.rb' -O config/initializers/rails_admin.rb"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/htaccess' -O public/.htaccess"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/grid.png' -O public/images/grid.png"
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/views/layouts/anonymous.html.haml' -O app/views/layouts/anonymous.html.haml"
 
 append_file 'Rakefile', <<-METRIC_FU
 

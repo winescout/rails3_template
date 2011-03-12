@@ -53,7 +53,7 @@ run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/r
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/htaccess' -O public/.htaccess"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/grid.png' -O public/images/grid.png"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/views/layouts/anonymous.html.haml' -O app/views/layouts/anonymous.html.haml"
-run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/application.rb' -O app/controllers/application.rb"
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/application_controller.rb' -O app/controllers/application_controller.rb"
 
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/public/javascripts/jquery-ui.min.js' -O public/javascripts/jquery-ui.min.js"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/public/javascripts/jasmine-jquery-1.2.0.js' -O public/javascripts/jasmine-jquery-1.2.0.js"

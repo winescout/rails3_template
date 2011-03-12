@@ -2,11 +2,9 @@ run "rm -Rf .gitignore README public/index.html public/javascripts/* test app/vi
 
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/Gemfile' -O Gemfile"
 
-run "rvm use --create --rvmrc ruby-1.9.2@#{app_name}"
-run "cd .."
-run "cd ./#{app_name}"
-run "gem install bundler"
-run "bundle install"
+run "rvm --create use ruby-1.9.2@#{app_name}" 
+run "rvm ruby-1.9.2@#{app_name} gem install bundler"
+run "rvm ruby-1.9.2@#{app_name} -S bundle install"
 
 application  <<-GENERATORS
 config.generators do |g|

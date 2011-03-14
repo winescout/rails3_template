@@ -1,11 +1,9 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.5'
-gem 'rails_admin'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
-gem "rails_admin", :git => 'git://github.com/sferik/rails_admin.git'
 gem "haml-rails", ">= 0.2"
 gem "inherited_resources", ">=1.1.2"
 gem "will_paginate", ">=3.0.pre2"

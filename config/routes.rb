@@ -1,4 +1,4 @@
-<%= @app_name %>::Application.routes.draw do
+<%= app_name %>::Application.routes.draw do
   get "welcome/index"
   
   devise_for :admins

@@ -3,12 +3,9 @@
 #end
 #
 def install_file(local_path, opts = {})
-  run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/#{local_path}' -O #{local_path}"
-  namespace_file(local_path)
-end
-
-def namespace_file(local_path)
-  run "erb #{local_path} > local_path"
+  run "mkdir -p tmp/templates/#{File.dirname(local_path)}"
+  run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/#{local_path}' -O tmp/templates/#{local_path}"
+  run "ruby -rerb  -e \"app_name = '#{app_name.upcase}'; puts ERB.new(File.read(\\\"tmp/templates/#{local_path}\\\")).result(binding)\" > #{local_path}"
 end
 
 #run "rm -Rf .gitignore README public/index.html public/javascripts/* test app/views/layouts/*"

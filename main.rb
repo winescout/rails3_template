@@ -13,9 +13,9 @@ run "rm -Rf .gitignore README public/index.html public/javascripts/* test app/vi
 
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/Gemfile' -O Gemfile"
 
-#run "rvm --create --rvmrc use ruby-1.9.2@#{app_name}" 
-#rvm_run "gem install bundler"
-#rvm_run "-S bundle install"
+run "rvm --create --rvmrc use ruby-1.9.2@#{app_name}" 
+rvm_run "gem install bundler"
+rvm_run "-S bundle install"
 
 
 application  <<-GENERATORS
@@ -42,7 +42,7 @@ append_file "config/compass.rb", "require 'lemonade'"
 run "rm public/stylesheets/*"
 
 #Welcome controller
-rvm_run "exec rails controller Welcome"
+rvm_run "exec rails g controller Welcome"
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/welcome/index.html.haml' -O app/views/welcome/index.html.haml"
 
 #Homepage controller
@@ -91,6 +91,9 @@ run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/r
 run "mkdir -p app/stylesheets"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/stylesheets/anonymous.scss' -O app/stylesheets/anonymous.scss"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/stylesheets/navigation.scss' -O app/stylesheets/navigation.scss"
+
+run "mkdir public/stylesheets/jauery-ui"
+run "wget 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/ui-lightness/jquery-ui.css' -O public/stylesheets/jquery-ui/ui-lightness.css"
 
 #controllers
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/homepage_controller.rb' -O app/controllers/homepage_controller.rb"

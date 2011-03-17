@@ -50,16 +50,19 @@ rvm_run "exec rails controller Homepage"
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/homepage/index.html.haml' -O app/views/homepage/index.html.haml"
 
 #User customizations
+run "mkdir -p app/views/users"
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/users/new.html.haml' -O app/views/users/new.html.haml"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/users_controller.rb' -O app/controllers/users_controller.rb"
 
 #Password customizations
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/passwords_controller.rb' -O app/controllers/passwords_controller.rb"
+run "mkdir -p app/views/passwords"
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/passwords/new.html.haml' -O app/views/passwords/new.html.haml"
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/passwords/edit.html.haml' -O app/views/passwords/exit.htlm.haml"
 
 #Session customizations
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/sessions_controller.rb' -O app/controllers/sessions_controller.rb"
+run "mkdir -p app/views/sessions"
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/sessions/new.html.haml' -O app/views/sessions/new.htlm.haml"
 
 

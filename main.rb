@@ -51,15 +51,15 @@ run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/
 
 #User customizations
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/users/new.html.haml' -O app/views/users/new.html.haml"
-run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/controllers/users_controller.rb' -O app/controllers/users_controller.rb"
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/users_controller.rb' -O app/controllers/users_controller.rb"
 
 #Password customizations
-run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/controllers/passwords_controller.rb' -O app/controllers/passwords_controller.rb"
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/passwords_controller.rb' -O app/controllers/passwords_controller.rb"
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/passwords/new.html.haml' -O app/views/passwords/new.html.haml"
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/passwords/edit.html.haml' -O app/views/passwords/exit.htlm.haml"
 
 #Session customizations
-run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/controllers/sessions_controller.rb' -O app/controllers/sessions_mcontroller.rb"
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/sessions_controller.rb' -O app/controllers/sessions_controller.rb"
 run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/sessions/new.html.haml' -O app/views/sessions/new.htlm.haml"
 
 
@@ -92,8 +92,10 @@ run "mkdir -p app/stylesheets"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/stylesheets/anonymous.scss' -O app/stylesheets/anonymous.scss"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/stylesheets/navigation.scss' -O app/stylesheets/navigation.scss"
 
-run "mkdir public/stylesheets/jauery-ui"
-run "wget 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/ui-lightness/jquery-ui.css' -O public/stylesheets/jquery-ui/ui-lightness.css"
+run "mkdir -p public/stylesheets/jquery-ui/ui-lightness"
+run "git clone https://github.com/jquery/jquery-ui.git tmp/jquery-ui"
+run "mv tmp/jquery-ui/themes/base/images public/stylesheets/jquery-ui/ui-lightness/images" 
+run "wget 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.10/themes/ui-lightness/jquery-ui.css' -O public/stylesheets/jquery-ui/ui-lightness/jquery-ui.1.8.10.css"
 
 #controllers
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/app/controllers/homepage_controller.rb' -O app/controllers/homepage_controller.rb"

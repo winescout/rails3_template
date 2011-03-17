@@ -13,9 +13,10 @@ run "rm -Rf .gitignore README public/index.html public/javascripts/* test app/vi
 
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/Gemfile' -O Gemfile"
 
-run "rvm --create --rvmrc use ruby-1.9.2@#{app_name}" 
-rvm_run "gem install bundler"
-rvm_run "-S bundle install"
+#run "rvm --create --rvmrc use ruby-1.9.2@#{app_name}" 
+#rvm_run "gem install bundler"
+#rvm_run "-S bundle install"
+
 
 application  <<-GENERATORS
 config.generators do |g|
@@ -26,20 +27,41 @@ config.generators do |g|
 end
 GENERATORS
 
-generate "rspec:install"
-generate "cucumber:install --webrat --rspec --spork"
-generate "pickle --path --email"
-generate "friendly_id"
-generate "formtastic:install"
-generate "devise:install"
-generate "devise User"
-generate "devise Admin"
+rvm_run "exec rails g rspec:install"
+rvm_run "exec rails g cucumber:install --webrat --rspec --spork"
+rvm_run "exec rails g pickle --path --email"
+rvm_run "exec rails g friendly_id"
+rvm_run "exec rails g formtastic:install"
+rvm_run "exec rails g devise:install"
+rvm_run "exec rails g devise User"
+rvm_run "exec rails g devise Admin"
 
-run "gem install compass"
 run "compass init --using blueprint --app rails --css-dir public/stylesheets"
 append_file "config/compass.rb", "require 'lemonade'"
 
 run "rm public/stylesheets/*"
+
+#Welcome controller
+rvm_run "exec rails controller Welcome"
+run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/welcome/index.html.haml' -O app/views/welcome/index.html.haml"
+
+#Homepage controller
+rvm_run "exec rails controller Homepage"
+run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/homepage/index.html.haml' -O app/views/homepage/index.html.haml"
+
+#User customizations
+run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/users/new.html.haml' -O app/views/users/new.html.haml"
+run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/controllers/users_controller.rb' -O app/controllers/users_controller.rb"
+
+#Password customizations
+run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/controllers/passwords_controller.rb' -O app/controllers/passwords_controller.rb"
+run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/passwords/new.html.haml' -O app/views/passwords/new.html.haml"
+run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/passwords/edit.html.haml' -O app/views/passwords/exit.htlm.haml"
+
+#Session customizations
+run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/controllers/sessions_controller.rb' -O app/controllers/sessions_mcontroller.rb"
+run "wget --no-check-certificate 'https://github.com/winescout/rails_3_template/raw/master/app/views/sessions/new.html.haml' -O app/views/sessions/new.htlm.haml"
+
 
 run "wget --no-check-certificate 'https://github.com/rails/jquery-ujs/raw/master/src/rails.js' -O public/javascripts/rails.js"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/gitignore' -O .gitignore"
@@ -63,6 +85,7 @@ run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/r
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/public/javascripts/jasmine-jquery-1.2.0.js' -O public/javascripts/jasmine-jquery-1.2.0.js"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/public/javascripts/jquery.min.js' -O public/javascripts/jquery.min.js"
 run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/public/javascripts/navigation.coffee' -O public/javascripts/navigation.coffee"
+run "wget --no-check-certificate 'https://github.com/winescout/rails3_template/raw/master/public/javascripts/navigation.js' -O public/javascripts/navigation.js"
 
 #stylesheets
 run "mkdir -p app/stylesheets"

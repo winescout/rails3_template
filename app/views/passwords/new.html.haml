@@ -1,0 +1,13 @@
+#forgot_password_form_container
+  %h2 Forget something?
+  .flash.ui-state-default
+    %div
+
+  = form_for(@user, :url => password_path(:user), :remote => true, :html => { :method => :post, :id => "forgot_password_form", 'data-type' => 'html' }) do |f|
+    = devise_error_messages!
+    %p
+      = f.label :email
+      %span#user_email_validation.inline_validation_error
+      %br/
+      = f.text_field :email
+    %p= f.submit "Send me reset password instructions", :id => "forgot_password_submit_button"
